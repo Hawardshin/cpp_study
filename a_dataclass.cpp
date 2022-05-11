@@ -12,6 +12,12 @@ class Data
 	void add_month(int inc);
 	void add_year(int inc);
 
+	Data(int year,int month,int day)
+	{
+		year_ = year;
+		month_= month;
+		day_=day;
+	}
 	int get_current_month_to_total_day(int year, int month);
 	void show_data();
 };
@@ -72,8 +78,7 @@ void	Data::show_data()
 
 int main()
 {
-	Data day;
-	day.set_data(2011,3,1);
+	Data day(2000,3,25);
 	day.show_data();
 	day.add_day(30);
 	day.show_data();
