@@ -109,6 +109,7 @@ int main()
 	string hi("hi");
 	string hello("hello");
 	hi.add_string(hello);
+	std::cout<<"len::" <<hi.strlen()<<std::endl;
 	hi.Print();
 	hello.Print();
 }
