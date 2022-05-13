@@ -1,4 +1,4 @@
-// 복사 생성자의 중요성
+// 디폴트 복사 생성자의 한계
 #include <string.h>
 #include <iostream>
 
@@ -12,11 +12,11 @@ class Photon_Cannon {
  public:
   Photon_Cannon(int x, int y);
   Photon_Cannon(int x, int y, const char *cannon_name);
-  Photon_Cannon(const Photon_Cannon &pc);
   ~Photon_Cannon();
 
   void show_status();
 };
+
 Photon_Cannon::Photon_Cannon(int x, int y) {
   hp = shield = 100;
   coord_x = x;
@@ -25,18 +25,8 @@ Photon_Cannon::Photon_Cannon(int x, int y) {
 
   name = NULL;
 }
-Photon_Cannon::Photon_Cannon(const Photon_Cannon &pc) {
-  std::cout << "복사 생성자 호출! " << std::endl;
-  hp = pc.hp;
-  shield = pc.shield;
-  coord_x = pc.coord_x;
-  coord_y = pc.coord_y;
-  damage = pc.damage;
-
-  name = new char[strlen(pc.name) + 1];
-  strcpy(name, pc.name);
-}
-Photon_Cannon::Photon_Cannon(int x, int y, const char *cannon_name) {
+Photon_Cannon::Photon_Cannon(int x, int y, const char *cannon_name) 
+{
   hp = shield = 100;
   coord_x = x;
   coord_y = y;
@@ -45,6 +35,7 @@ Photon_Cannon::Photon_Cannon(int x, int y, const char *cannon_name) {
   name = new char[strlen(cannon_name) + 1];
   strcpy(name, cannon_name);
 }
+
 Photon_Cannon::~Photon_Cannon() {
   if (name) delete[] name;
 }
