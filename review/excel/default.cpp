@@ -20,7 +20,7 @@ Vector :: Vector(int n) : data(new std::string[n]),capacity(n),length(0){}
 
 int main()
 {
-	Vector a; 
+	Vector a(2); 
 	a.show_length();
 	a.show_capacity();
 }
